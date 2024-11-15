@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp2.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <StackLayout Padding="20">
+
+
+        <Label
+            x:Name="statusLabel"
+            FontSize="18"
+            HorizontalOptions="Center"
+            Text="" />
+
+        <Frame
+            Margin="0,20,0,0"
+            Padding="20"
+            BackgroundColor="White">
+            <Grid ColumnSpacing="15" RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--  !  Aplikazioaren Tituloa  -->
+                <Label
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0,0,0,20"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Kontzertuen Erreserba" />
+
+                <Frame
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Padding="10"
+                    BorderColor="LightGray">
+                    <!--  ? Gure hiriak  -->
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label FontAttributes="Bold" Text="Herria" />
+                        <RadioButton
+                            x:Name="MadridRadioButton"
+                            CheckedChanged="OnCitySelected"
+                            Content="Madrid"
+                            GroupName="Cities"
+                            IsChecked="True" />
+                        <RadioButton
+                            x:Name="BarcelonaRadioButton"
+                            CheckedChanged="OnCitySelected"
+                            Content="Barcelona"
+                            GroupName="Cities" />
+                        <RadioButton
+                            x:Name="BilbaoRadioButton"
+                            CheckedChanged="OnCitySelected"
+                            Content="Bilbao"
+                            GroupName="Cities" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Spacing="15">
+                    <!--  ! Gure Datuen Sarrera  -->
+                    <Entry
+                        x:Name="IzenaEntry"
+                        Placeholder="Izena"
+                        TextChanged="OnEntryTextChanged" />
+                    <Entry
+                        x:Name="AbizenaEntry"
+                        Placeholder="Abizena"
+                        TextChanged="OnEntryTextChanged" />
+                    <Entry
+                        x:Name="DNIEntry"
+                        Placeholder="DNI"
+                        TextChanged="OnEntrydniTextChanged" />
+                    <HorizontalStackLayout Spacing="10">
+                        <Label
+                            x:Name="Kantitatealabel"
+                            Text="Kantitatea:"
+                            VerticalOptions="Center" />
+                        <Entry
+                            x:Name="KantitateaEntry"
+                            HorizontalTextAlignment="Center"
+                            Text="1"
+                            TextChanged="OnEntryTextChanged"
+                            WidthRequest="50" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <!--  ? Erreserba Kopurua erakusteko label-a  -->
+                <Label
+                    x:Name="reservasLabel"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Erreserbak:"
+                    VerticalOptions="Center" />
+
+                <HorizontalStackLayout
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalOptions="End"
+                    Spacing="10">
+
+                    <!--  ? Erreserba Botoia  -->
+                    <Button
+                        x:Name="ErreserbaBotoia"
+                        Clicked="OnErreserbaButtonClicked"
+                        IsEnabled="False"
+                        Text="Erreserbatu"
+                        WidthRequest="120" />
+                    <Button
+                        x:Name="IrtenButton"
+                        BackgroundColor="Red"
+                        Clicked="OnIrtenButtonClicked"
+                        Text="Irten"
+                        WidthRequest="100" />
+                </HorizontalStackLayout>
+            </Grid>
+        </Frame>
+    </StackLayout>
+
+
+</ContentPage>
